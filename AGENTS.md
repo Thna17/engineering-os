@@ -58,3 +58,24 @@ Follow the Sweep workflow in that file.
 - Database migrations use `ALTER TABLE ... ADD COLUMN` (errors ignored if column exists)
 - Mock-dependent tests use `#[cfg(feature = "test-mocks")]`
 - See [CLAUDE.md](CLAUDE.md) for adding new fields, agents, plugins, shortcuts
+
+## Engineering OS Extension Rules
+
+The `feat/engineering-os` line extends agtx into a recoverable software-engineering workflow
+controller. The upstream rules above remain authoritative for inherited code.
+
+- Keep the existing task, plugin, worktree, tmux, database, and MCP abstractions unless an ADR
+  records why they cannot satisfy a requirement.
+- Keep execution local-first. Any hosted control plane must use the same explicit runner contract.
+- Treat agent output as untrusted. Deterministic checks and policy gates decide whether work may
+  advance; an agent must not approve its own unrestricted command execution.
+- Never scrape browser sessions or provider tokens, bypass authentication, or evade provider
+  quotas. Use supported CLI and API authentication flows.
+- Require an explicit human release decision after a pull request is ready. Autonomous workflows
+  may prepare a PR but may not merge or deploy it by default.
+- Record executed validation commands and outcomes in
+  `docs/engineering/IMPLEMENTATION_REPORTS.md`; do not claim checks passed without evidence.
+- Pin external integrations by release and commit in `docs/architecture/REUSE_STRATEGY.md`, and
+  update `THIRD_PARTY_NOTICES.md` when code or packaged assets are incorporated.
+- Prefer allow-listed commands, isolated workspaces, bounded retries, leases, and resumable state.
+  Unrestricted shells and blanket auto-approval are outside the product safety boundary.
