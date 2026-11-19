@@ -67,3 +67,23 @@ Evidence:
 | Requirement-ID definition audit | Passed | 30 functional, 13 non-functional, 16 product acceptance, 43 backlog, and 37 security definitions; no duplicate definition IDs |
 | Markdown fence audit | Passed | All blueprint Markdown files have balanced code fences |
 | Local Markdown link audit | Passed | Every relative link in product, architecture, engineering, and security Markdown resolves |
+
+## IR-0003 — Gemini implementation prompt playbook (2026-11-19)
+
+Scope: convert the dependency-aware backlog into copy-paste Gemini CLI prompts with a persistent
+bootstrap contract, task-level scope, required tests/evidence, security boundaries, stop conditions,
+Codex review, and selected-finding repair.
+
+The playbook covers baseline recovery, EOS-0101 through EOS-0507, MVP readiness, and optional
+EOS-0601 through EOS-0604 increments. It deliberately requires one reviewed prompt at a time and
+does not authorize commits, pushes, merges, production deployment, unsafe shell execution, browser
+credential access, or quota bypass.
+
+Validation:
+
+| Command/check | Result | Evidence |
+|---|---|---|
+| `git diff --check` | Passed | No patch whitespace errors |
+| Prompt inventory | Passed | Prompts 0–29, two optional increments, Codex review, and Gemini repair are present |
+| Markdown fence audit | Passed | 68 code fences; balanced |
+| Rust/runtime tests | Not run | Documentation-only change; existing native Rust/Docker blocker remains recorded in IR-0001 |

@@ -12,6 +12,7 @@ Updated: 2026-10-17.
 | Commercial product blueprint | Complete | PRD, personas, stories/flows, MVP scope, system/component/data/integration/deployment architecture |
 | Traceable implementation plan | Complete | Requirement and acceptance IDs linked to milestone exits and `TASK_BACKLOG.md` dependencies |
 | Quality/security blueprint | Complete | Quality standards, test strategy, and enforceable security requirement IDs |
+| Gemini implementation playbook | Complete | `GEMINI_IMPLEMENTATION_PROMPTS.md` sequences gated implementation, review, and repair through MVP |
 | Native Rust toolchain | Blocked by environment | Install with `brew install rustup-init`, run `rustup-init`, then pin the chosen toolchain in `rust-toolchain.toml` |
 | Baseline validation | Partial | Web tests and default Rust build passed; serve build hit disk exhaustion and Docker Desktop could not restart, so full Rust tests remain not run |
 | Gemini CLI | Blocked by environment | Install supported package `@google/gemini-cli@0.64.0` only after project policy accepts that pin; authenticate with its supported flow |
